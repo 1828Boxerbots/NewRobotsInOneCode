@@ -6,22 +6,24 @@
 
 #include <frc2/command/SubsystemBase.h>
 
-class ShooterSubsystemBase : public frc2::SubsystemBase {
+#include "../LoaderSubsystemBase.h"
+
+#include <frc/motorcontrol/Victor.h>
+#include "Constants.h"
+
+class LoaderKurgan : public LoaderSubsystemBase {
  public:
-  ShooterSubsystemBase();
+  LoaderKurgan();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
 
-  virtual void Init() {};
-
-  virtual void ShootMotor(double speed) {};
-
-  void Shoot(double speed);
+  void LoadMotor(double speed, LoaderSubsystemBase::LoadSection section = LoaderSubsystemBase::ALL) override;
 
  private:
+  frc::Victor m_loader{PWM_KURGAN_LOAD};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

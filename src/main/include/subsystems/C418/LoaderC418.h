@@ -5,23 +5,26 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include "../LoaderSubsystemBase.h"
 
-class ShooterSubsystemBase : public frc2::SubsystemBase {
+#include <frc/motorcontrol/Victor.h>
+#include "Constants.h"
+
+class LoaderC418 : public LoaderSubsystemBase {
  public:
-  ShooterSubsystemBase();
+  LoaderC418();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
 
-  virtual void Init() {};
-
-  virtual void ShootMotor(double speed) {};
-
-  void Shoot(double speed);
+  void LoadMotor(double speed, LoaderSubsystemBase::LoadSection section = LoaderSubsystemBase::ALL);
 
  private:
+  frc::Victor m_intake{PWM_C418_LOW};
+  frc::Victor m_middle{PWM_C418_MIDDLE};
+  frc::Victor m_high{PWM_C418_HIGH};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

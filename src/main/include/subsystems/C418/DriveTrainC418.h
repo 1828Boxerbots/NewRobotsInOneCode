@@ -5,23 +5,28 @@
 #pragma once
 
 #include <frc2/command/SubsystemBase.h>
+#include "../DriveTrainSubsystemBase.h"
 
-class ShooterSubsystemBase : public frc2::SubsystemBase {
+#include <frc/motorcontrol/Victor.h>
+
+#include "Constants.h"
+
+class DriveTrainC418 : public DriveTrainSubsystemBase {
  public:
-  ShooterSubsystemBase();
+  DriveTrainC418();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
    */
   void Periodic() override;
 
-  virtual void Init() {};
-
-  virtual void ShootMotor(double speed) {};
-
-  void Shoot(double speed);
+  void Init() override;
+  void SetLeft(double speed) override;
+  void SetRight(double speed) override;
 
  private:
+  frc::Victor m_left{PWM_C418_LEFT};
+  frc::Victor m_right{PWM_C418_RIGHT};
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };
