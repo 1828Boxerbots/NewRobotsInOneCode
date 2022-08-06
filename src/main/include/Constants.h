@@ -19,7 +19,7 @@ constexpr   int PWM_C418_RIGHT = 0;
 constexpr   int PWM_C418_LOW = 5;
 constexpr   int PWM_C418_MIDDLE = 4;
 constexpr   int PWM_C418_HIGH = 6;
-constexpr   int PWM_C418_SHOOTER = 5;
+constexpr   int PWM_C418_SHOOTER = 3;
 
 constexpr   int PWM_KURGAN_LEFT1 = 1;
 constexpr   int PWM_KURGAN_LEFT2 = 2;

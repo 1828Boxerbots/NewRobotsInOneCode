@@ -49,7 +49,6 @@ void RobotContainerC418::ConfigureButtonBindings()
 
 void RobotContainerC418::SetXButton()
 {
-    
     m_xButtonOne.WhenHeld(m_pMiddleCMD);
     m_xButtonOne.WhenReleased(m_pLoadStopCMD);
 }
